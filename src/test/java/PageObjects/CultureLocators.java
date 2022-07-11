@@ -45,4 +45,10 @@ public class CultureLocators extends PageObject{
     @FindBy(xpath = "//section[@class='cart-widget-subtotal']//child::div[2]")
     public WebElementFacade subTotal;
 
+    @FindBy(xpath = "//input[@type='search']")
+    public WebElementFacade searchBox;
+
+    @FindBy(xpath = "//a[contains(@data-hook, 'item-title') and contains(@title, 'Durag')]")
+    public WebElementFacade searchResult;
+
 }

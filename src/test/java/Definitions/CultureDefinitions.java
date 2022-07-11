@@ -9,6 +9,7 @@ import cucumber.api.java.en.When;
 public class CultureDefinitions {
 
     CultureSteps cultureSteps;
+
     @Given("^User opens Culture Apparel main page$")
     public void userOpensCultureApparelMainPage() {
         cultureSteps.openBrowser();
@@ -18,6 +19,7 @@ public class CultureDefinitions {
     public void userClicksOnTheNavbarForTheSneakersCategory(String category) {
         cultureSteps.selectCategory(category);
     }
+
     @And("^User selects the item with name (.*)$")
     public void userSelectsTheItemWithNameItemName(String itemName) {
         cultureSteps.selectItem(itemName);
@@ -44,5 +46,20 @@ public class CultureDefinitions {
     @Then("^User should be able to see the correct summary amount multiplying price by (.*)$")
     public void userShouldBeAbleToSeeTheCorrectSummaryAmountMultiplyingPriceByQty(int qty) {
         cultureSteps.checkSummaryAmount(qty);
+    }
+
+    @When("^User click on search box$")
+    public void userClickOnSearchBox() {
+        cultureSteps.searchBox();
+    }
+
+    @And("^User types in (.*)$")
+    public void userTypesInTextToSearch(String textToSearch) {
+        cultureSteps.searchForItem(textToSearch);
+    }
+
+    @Then("^User should be able to see the item in the results$")
+    public void userShouldBeAbleToSeeTheItemInTheResults() {
+        cultureSteps.searchResult();
     }
 }

@@ -5,6 +5,7 @@ import net.serenitybdd.core.pages.PageObject;
 import net.serenitybdd.core.pages.WebElementFacade;
 import org.junit.Assert;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
 
 
 public class CultureSteps extends PageObject {
@@ -50,6 +51,19 @@ public class CultureSteps extends PageObject {
         String[] price = cultureLocators.itemPrice.getText().split("\\$");
         String[] subTotal = cultureLocators.subTotal.getText().split("\\$");
         Assert.assertTrue((Integer.parseInt(price[1].replace(".","").replace(",00","")) * qty) == Integer.parseInt(subTotal[1].replace(".","").replace(",00","")));
+    }
+
+    public void searchBox(){
+        cultureLocators.searchBox.click();
+    }
+
+    public void searchForItem(String textToSearch){
+        cultureLocators.searchBox.sendKeys(textToSearch + Keys.ENTER);
+        waitFor(5).seconds();
+    }
+
+    public void searchResult(){
+        Assert.assertTrue(cultureLocators.searchResult.getText(),true);
     }
 
 
